@@ -40,8 +40,22 @@ class Page {
 class Header {
     createHeader() {
         const header = document.createElement("header");
-        header.textContent = "Model Base Quantities Check";
         header.className = "header";
+
+        // Add header text
+        const text = document.createTextNode("Model Base Quantities Check");
+        header.appendChild(text);
+
+        // Add logo to the right
+        const logo = document.createElement("img");
+        logo.src = "logo.png";       // your logo file in the same folder
+        logo.alt = "Company Logo";
+        logo.style.height = "50px";  // adjust size
+        logo.style.verticalAlign = "middle";
+        logo.style.marginLeft = "10px"; // space between text and logo
+        header.appendChild(logo);
+
+        // Append header to page
         document.body.append(header);
     }
 }
@@ -145,3 +159,4 @@ async function checkBaseQuantitiesDynamic(ifcPartial, properties) {
 
     return "issuesFound";
 }
+
