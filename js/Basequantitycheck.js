@@ -42,23 +42,26 @@ class Header {
         const header = document.createElement("header");
         header.className = "header";
 
-        // Add header text
+        // Create a text node for the header text
         const text = document.createTextNode("Model Base Quantities Check");
         header.appendChild(text);
 
-        // Add logo to the right
+        // Create logo image
         const logo = document.createElement("img");
-        logo.src = "logo.png";       // your logo file in the same folder
+        logo.src = "logo.png";        // Make sure file is in the same folder
         logo.alt = "Company Logo";
-        logo.style.height = "50px";  // adjust size
+        logo.style.height = "50px";   // adjust size
         logo.style.verticalAlign = "middle";
         logo.style.marginLeft = "10px"; // space between text and logo
+
+        // Append logo after text
         header.appendChild(logo);
 
         // Append header to page
-        document.body.append(header);
+        document.body.prepend(header); // or append(header) if you prefer
     }
 }
+
 
 // ================================================
 // STEP 4️⃣: Create dynamic buttons from JSON data
@@ -159,4 +162,5 @@ async function checkBaseQuantitiesDynamic(ifcPartial, properties) {
 
     return "issuesFound";
 }
+
 
